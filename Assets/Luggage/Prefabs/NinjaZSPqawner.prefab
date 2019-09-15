@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000010295885732}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010295885732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012516950556}
+  - 114: {fileID: 114000011799773208}
+  m_Layer: 0
+  m_Name: NinjaZSPqawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012516950556
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010295885732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000011799773208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010295885732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0066efb55cb6e324c8c75b3bcc2154ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ninja:
+  - {fileID: 1000012222668508, guid: d80a985cbc67e014bb97904ae95a93ae, type: 2}
+  radius: 7
+  speed: 1.5
+  spin_speed: 4
+  audios:
+  - {fileID: 8300000, guid: 27e60297d2b92db459bc3ad23a818330, type: 3}
+  - {fileID: 8300000, guid: dc71dd6970aefab4fbe0d63619c10296, type: 3}
+  - {fileID: 8300000, guid: bf67928b574efc74f9fedfeea24caf58, type: 3}

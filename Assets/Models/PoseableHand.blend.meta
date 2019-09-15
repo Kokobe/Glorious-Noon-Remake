@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 4dcdf39307e71488a88bb0a2e474334f
+timeCreated: 1490675737
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: Bone_001
+    100006: Bone_002
+    100008: Bone_003
+    100010: Bone_004
+    100012: Bone_005
+    100014: Bone_006
+    100016: Bone_007
+    100018: Bone_008
+    100020: Bone_009
+    100022: Bone_010
+    100024: Bone_011
+    100026: Bone_012
+    100028: Bone_013
+    100030: Bone_014
+    100032: Bone_015
+    100034: Bone_016
+    100036: Bone_017
+    100038: Bone_018
+    100040: Cube
+    100042: Cube_001
+    100044: //RootNode
+    100046: Armature_001
+    100048: Armature_002
+    100050: Armature_003
+    100052: Bone_0
+    100054: Bone_1
+    100056: Bone_10
+    100058: Bone_11
+    100060: Bone_12
+    100062: Bone_13
+    100064: Bone_14
+    100066: Bone_15
+    100068: Bone_16
+    100070: Bone_17
+    100072: Bone_18
+    100074: Bone_19
+    100076: Bone_2
+    100078: Bone_20
+    100080: Bone_21
+    100082: Bone_22
+    100084: Bone_23
+    100086: Bone_24
+    100088: Bone_25
+    100090: Bone_26
+    100092: Bone_27
+    100094: Bone_28
+    100096: Bone_29
+    100098: Bone_3
+    100100: Bone_30
+    100102: Bone_31
+    100104: Bone_32
+    100106: Bone_33
+    100108: Bone_34
+    100110: Bone_35
+    100112: Bone_36
+    100114: Bone_37
+    100116: Bone_38
+    100118: Bone_39
+    100120: Bone_4
+    100122: Bone_40
+    100124: Bone_41
+    100126: Bone_42
+    100128: Bone_43
+    100130: Bone_44
+    100132: Bone_45
+    100134: Bone_46
+    100136: Bone_47
+    100138: Bone_48
+    100140: Bone_49
+    100142: Bone_5
+    100144: Bone_50
+    100146: Bone_51
+    100148: Bone_52
+    100150: Bone_53
+    100152: Bone_54
+    100154: Bone_55
+    100156: Bone_56
+    100158: Bone_6
+    100160: Bone_7
+    100162: Bone_8
+    100164: Bone_9
+    100166: Cube_002
+    100168: Cube_003
+    100170: LeftHand
+    100172: RightHand
+    400000: Armature
+    400002: Bone
+    400004: Bone_001
+    400006: Bone_002
+    400008: Bone_003
+    400010: Bone_004
+    400012: Bone_005
+    400014: Bone_006
+    400016: Bone_007
+    400018: Bone_008
+    400020: Bone_009
+    400022: Bone_010
+    400024: Bone_011
+    400026: Bone_012
+    400028: Bone_013
+    400030: Bone_014
+    400032: Bone_015
+    400034: Bone_016
+    400036: Bone_017
+    400038: Bone_018
+    400040: Cube
+    400042: Cube_001
+    400044: //RootNode
+    400046: Armature_001
+    400048: Armature_002
+    400050: Armature_003
+    400052: Bone_0
+    400054: Bone_1
+    400056: Bone_10
+    400058: Bone_11
+    400060: Bone_12
+    400062: Bone_13
+    400064: Bone_14
+    400066: Bone_15
+    400068: Bone_16
+    400070: Bone_17
+    400072: Bone_18
+    400074: Bone_19
+    400076: Bone_2
+    400078: Bone_20
+    400080: Bone_21
+    400082: Bone_22
+    400084: Bone_23
+    400086: Bone_24
+    400088: Bone_25
+    400090: Bone_26
+    400092: Bone_27
+    400094: Bone_28
+    400096: Bone_29
+    400098: Bone_3
+    400100: Bone_30
+    400102: Bone_31
+    400104: Bone_32
+    400106: Bone_33
+    400108: Bone_34
+    400110: Bone_35
+    400112: Bone_36
+    400114: Bone_37
+    400116: Bone_38
+    400118: Bone_39
+    400120: Bone_4
+    400122: Bone_40
+    400124: Bone_41
+    400126: Bone_42
+    400128: Bone_43
+    400130: Bone_44
+    400132: Bone_45
+    400134: Bone_46
+    400136: Bone_47
+    400138: Bone_48
+    400140: Bone_49
+    400142: Bone_5
+    400144: Bone_50
+    400146: Bone_51
+    400148: Bone_52
+    400150: Bone_53
+    400152: Bone_54
+    400154: Bone_55
+    400156: Bone_56
+    400158: Bone_6
+    400160: Bone_7
+    400162: Bone_8
+    400164: Bone_9
+    400166: Cube_002
+    400168: Cube_003
+    400170: LeftHand
+    400172: RightHand
+    2300000: Cube_001
+    2300002: Cube_003
+    3300000: Cube_001
+    3300002: Cube_003
+    4300000: Cube_001
+    4300002: Cube
+    4300004: Cube_003
+    4300006: Cube_002
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Cube_001
+    13700004: Cube_002
+    13700006: Cube_003
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_002
+        weight: 1
+      - path: Armature_002/Bone_0
+        weight: 1
+      - path: Armature_002/Bone_0/Bone_2
+        weight: 1
+      - path: Armature_002/Bone_0/Bone_2/Bone_3
+        weight: 1
+      - path: Armature_002/Bone_0/Bone_2/Bone_3/Bone_4
+        weight: 1
+      - path: Armature_002/Bone_5
+        weight: 1
+      - path: Armature_002/Bone_5/Bone_6
+        weight: 1
+      - path: Armature_002/Bone_5/Bone_6/Bone_7
+        weight: 1
+      - path: Armature_002/Bone_5/Bone_6/Bone_7/Bone_8
+        weight: 1
+      - path: Armature_002/Bone_9
+        weight: 1
+      - path: Armature_002/Bone_9/Bone_10
+        weight: 1
+      - path: Armature_002/Bone_9/Bone_10/Bone_11
+        weight: 1
+      - path: Armature_002/Bone_9/Bone_10/Bone_11/Bone_12
+        weight: 1
+      - path: Armature_002/Bone_13
+        weight: 1
+      - path: Armature_002/Bone_13/Bone_14
+        weight: 1
+      - path: Armature_002/Bone_13/Bone_14/Bone_15
+        weight: 1
+      - path: Armature_002/Bone_13/Bone_14/Bone_15/Bone_16
+        weight: 1
+      - path: Armature_002/Bone_17
+        weight: 1
+      - path: Armature_002/Bone_17/Bone_18
+        weight: 1
+      - path: Armature_002/Bone_17/Bone_18/Bone_19
+        weight: 1
+      - path: Cube_002
+        weight: 1
+      - path: Cube_003
+        weight: 1
+      - path: LeftHand
+        weight: 1
+      - path: LeftHand/Bone
+        weight: 1
+      - path: LeftHand/Bone/Bone_001
+        weight: 1
+      - path: LeftHand/Bone/Bone_001/Bone_002
+        weight: 1
+      - path: LeftHand/Bone/Bone_001/Bone_002/Bone_003
+        weight: 1
+      - path: LeftHand/Bone_004
+        weight: 1
+      - path: LeftHand/Bone_004/Bone_005
+        weight: 1
+      - path: LeftHand/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: LeftHand/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: LeftHand/Bone_008
+        weight: 1
+      - path: LeftHand/Bone_008/Bone_009
+        weight: 1
+      - path: LeftHand/Bone_008/Bone_009/Bone_010
+        weight: 1
+      - path: LeftHand/Bone_008/Bone_009/Bone_010/Bone_011
+        weight: 1
+      - path: LeftHand/Bone_012
+        weight: 1
+      - path: LeftHand/Bone_012/Bone_013
+        weight: 1
+      - path: LeftHand/Bone_012/Bone_013/Bone_014
+        weight: 1
+      - path: LeftHand/Bone_012/Bone_013/Bone_014/Bone_015
+        weight: 1
+      - path: LeftHand/Bone_016
+        weight: 1
+      - path: LeftHand/Bone_016/Bone_017
+        weight: 1
+      - path: LeftHand/Bone_016/Bone_017/Bone_018
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
