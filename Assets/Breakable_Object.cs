@@ -25,6 +25,7 @@ public class Breakable_Object : MonoBehaviour {
     IEnumerator slowDownTime()
     {
         Time.timeScale = .1f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
         yield return new WaitForSecondsRealtime(3f);
         Time.timeScale = .25f;
         yield return new WaitForSecondsRealtime(1f);

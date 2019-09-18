@@ -302,6 +302,7 @@ public class Ninja: MonoBehaviour {
                 {
                 if(!SpawnNinja && !MooseNinja)
             {
+                Debug.Log("death smashing");
                 idle = false;
                 r.drag = 0;
                 r.angularDrag = 0;
@@ -312,11 +313,11 @@ public class Ninja: MonoBehaviour {
                         gSpark.enabled = true;
 
                     r.angularDrag = 0f;
-                    r.maxAngularVelocity = 10f;
+                    r.maxAngularVelocity = 5.5f;
                     r.AddForceAtPosition(Vector3.down * 10000f, forward.position);
                     r.velocity = Vector3.zero;
                     r.velocity += forwardDir * 1f;
-                    r.velocity += Vector3.up * 45f;
+                    r.velocity += Vector3.up * 75f;
                  
 
 
@@ -415,6 +416,8 @@ public class Ninja: MonoBehaviour {
                         var gSpark = GetComponent<SparkOnCollision>();
                         if (gSpark != null)
                             gSpark.enabled = true;
+
+                        Debug.Log("death smashing");
                         if(!bigNinja)
                         r.angularDrag = 0;
                         r.maxAngularVelocity = 10f;
@@ -604,66 +607,74 @@ public class Ninja: MonoBehaviour {
 
 	void Update () {
 
-        
-        if(hits > health)
+        try
         {
+            if (hits > health)
+            {
 
-          //  GetComponent<Breakable_Object>().enabled = true;
-            GetComponent<Breakable_Object>().Explode(transform.position, 600f, 0f);
-            if (progressBar)
-                progressBar.fillAmount += amount;
-        }
-       
-
-		if (r.velocity.magnitude > speedLimit) {
-
-			r.AddForce (-r.velocity.normalized * speedLimitForce);
-
-		}
-		
-		bool grounded = isGrounded ();
-
-		forwardDir = (transform.position != null)? (forward.position - transform.position).normalized: Vector3.zero;
-		 Quaternion targetRotation = Quaternion.LookRotation(targett.position - transform.position);
-        if (idle&&!choosingRotation)
-        {
-            StartCoroutine(chooseRandRotation());
+                //  GetComponent<Breakable_Object>().enabled = true;
+                GetComponent<Breakable_Object>().Explode(transform.position, 600f, 0f);
+                if (progressBar)
+                    progressBar.fillAmount += amount;
+            }
 
 
+            if (r.velocity.magnitude > speedLimit)
+            {
 
-        }else if(!idle)
-        {
+                r.AddForce(-r.velocity.normalized * speedLimitForce);
 
-            if (backwards)
-                toRotation = Quaternion.Euler(new Vector3(0, targetRotation.eulerAngles.y + 180f, 0));
-            else
-                toRotation = Quaternion.Euler(new Vector3(0, targetRotation.eulerAngles.y, 0));
+            }
 
-        }
-        targetRotation = toRotation;
-		if (grounded && !counting) {
-			t = Time.time;
-			counting = true; 
-		} else if (!grounded) {
-			counting = false;
+            bool grounded = isGrounded();
 
-		}
-       
-
-		if (r.velocity.magnitude < groundedVelocity&& !gettingBackUp && Quaternion.Angle(targetRotation, transform.rotation) < angleCutOff) {
-
-			if (counting && Time.time - t > pauseTime) {
-
-                Moves();
-
-				counting = false;
-				t = 0;
-			}
-
-		}
+            forwardDir = (transform.position != null) ? (forward.position - transform.position).normalized : Vector3.zero;
+            Quaternion targetRotation = Quaternion.LookRotation(targett.position - transform.position);
+            if (idle && !choosingRotation)
+            {
+                StartCoroutine(chooseRandRotation());
 
 
-        if (!gettingBackUp && !bigNinja && grounded && turnSpeed != 0)
+
+            }
+            else if (!idle)
+            {
+
+                if (backwards)
+                    toRotation = Quaternion.Euler(new Vector3(0, targetRotation.eulerAngles.y + 180f, 0));
+                else
+                    toRotation = Quaternion.Euler(new Vector3(0, targetRotation.eulerAngles.y, 0));
+
+            }
+            targetRotation = toRotation;
+            if (grounded && !counting)
+            {
+                t = Time.time;
+                counting = true;
+            }
+            else if (!grounded)
+            {
+                counting = false;
+
+            }
+
+
+            if (r.velocity.magnitude < groundedVelocity && !gettingBackUp && Quaternion.Angle(targetRotation, transform.rotation) < angleCutOff)
+            {
+
+                if (counting && Time.time - t > pauseTime)
+                {
+
+                    Moves();
+
+                    counting = false;
+                    t = 0;
+                }
+
+            }
+
+
+            if (!gettingBackUp && !bigNinja && grounded && turnSpeed != 0)
             {
 
 
@@ -672,32 +683,38 @@ public class Ninja: MonoBehaviour {
 
 
             }
-        
-        if (!gettingBackUp && grounded && !turning && bigNinja) {
-            turning = true;
-            turningT = 0;
-            fr = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
-            
-		}
-        if (turning &&!gettingBackUp && bigNinja )
+
+            if (!gettingBackUp && grounded && !turning && bigNinja)
+            {
+                turning = true;
+                turningT = 0;
+                fr = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
+
+            }
+            if (turning && !gettingBackUp && bigNinja)
+            {
+
+
+                transform.rotation = Quaternion.Lerp(fr, targetRotation, turningT);
+                turningT += Time.deltaTime * turnSpeed;
+
+                print(transform.rotation == fr);
+            }
+
+
+
+            if (Quaternion.Angle(targetRotation, transform.rotation) < angleCutOff)
+            {
+                turning = false;
+            }
+        } catch (UnassignedReferenceException e)
         {
-          
-
-            transform.rotation = Quaternion.Lerp(fr, targetRotation,  turningT);
-            turningT += Time.deltaTime * turnSpeed;
-
-            print(transform.rotation == fr);
+            Debug.Log("Ninja does not have target");
         }
 
-       
 
-        if (Quaternion.Angle(targetRotation, transform.rotation) < angleCutOff)
-        {
-            turning = false;
-        }
-       
-		
-	}
+
+    }
 
     public bool turning = false;
     Quaternion fr;
