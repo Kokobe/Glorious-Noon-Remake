@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Old_Throne_Room_Hard.unity
     guid: 71ab5edabb6f4464b95852959f3888e9
+  - enabled: 0
+    path: Assets/Oculus/VR/Scenes/GearVrControllerTest.unity
+    guid: d56af3aeb2176e7459f753c1c2e2dd97
   m_configObjects: {}
