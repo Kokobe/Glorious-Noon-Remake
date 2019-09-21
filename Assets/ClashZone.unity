@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 107325421}
-  m_IndirectSpecularColor: {r: 0.16406432, g: 0.15333743, b: 0.100214794, a: 1}
+  m_IndirectSpecularColor: {r: 0.38209957, g: 0.37783143, b: 0.3165593, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1682,7 +1682,7 @@ MonoBehaviour:
 --- !u!199 &47099895
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199288364996532116, guid: 3fc0a26d09ca89a4f8ef0e417730ffd2,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -14082,7 +14082,7 @@ MonoBehaviour:
 --- !u!199 &301143315
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199945884719214562, guid: 3fc0a26d09ca89a4f8ef0e417730ffd2,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -19823,10 +19823,10 @@ MonoBehaviour:
   tweakMode: 1
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 0.1
+  sepBlurSpread: 1.88
   quality: 1
-  bloomIntensity: 0.97
-  bloomThreshold: 0.71
+  bloomIntensity: 3.18
+  bloomThreshold: 0.61
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 1
   hollywoodFlareBlurIterations: 2
@@ -21463,8 +21463,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 066388aa2b6e7b1458dbafd1484279ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -22173,6 +22171,21 @@ PrefabInstance:
       propertyPath: scriptAliasRightController
       value: 
       objectReference: {fileID: 1262653816}
+    - target: {fileID: 114266386041034268, guid: 20614707316577d4b9f35a8dc14199e8,
+        type: 3}
+      propertyPath: autoLoadSetup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266386041034268, guid: 20614707316577d4b9f35a8dc14199e8,
+        type: 3}
+      propertyPath: autoManageVRSettings
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266386041034268, guid: 20614707316577d4b9f35a8dc14199e8,
+        type: 3}
+      propertyPath: autoManageScriptDefines
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224372566228096858, guid: 20614707316577d4b9f35a8dc14199e8,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -24668,7 +24681,7 @@ GameObject:
 --- !u!199 &577686101
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199533943244976338, guid: 466096307a7030642bc65e51df9e678b,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -37328,8 +37341,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 32a8b8e816f195b468b8065614b48d23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -37700,8 +37711,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 32a8b8e816f195b468b8065614b48d23, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -44935,7 +44944,7 @@ MonoBehaviour:
 --- !u!199 &1186381224
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199656567700503734, guid: 3fc0a26d09ca89a4f8ef0e417730ffd2,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -51661,7 +51670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e3b6f5eddebb9f94cac74a5be0ca50cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3b6f5eddebb9f94cac74a5be0ca50cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55142,7 +55151,7 @@ MonoBehaviour:
 --- !u!199 &1411848820
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199501152541907538, guid: 3fc0a26d09ca89a4f8ef0e417730ffd2,
     type: 3}
   m_PrefabInstance: {fileID: 0}
@@ -73404,7 +73413,7 @@ Transform:
 --- !u!199 &1924592896
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 199605618568844096, guid: 3fc0a26d09ca89a4f8ef0e417730ffd2,
     type: 3}
   m_PrefabInstance: {fileID: 0}
