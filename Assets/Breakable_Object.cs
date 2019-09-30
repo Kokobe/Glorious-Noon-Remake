@@ -68,7 +68,7 @@ public class Breakable_Object : MonoBehaviour {
                 var go = g[i];
 
                 go.transform.parent = null;
-                Destroy(go, 20f);
+                Destroy(go, 3f);
 
                 for (int j = 0; j < fragments.transform.childCount; j++)
                 {
@@ -119,7 +119,7 @@ public class Breakable_Object : MonoBehaviour {
 
         }
 
-        Destroy(fragments, 10f);
+        Destroy(fragments, 3f);
         if (rock && !shield && !partOfNinja)
             Destroy(transform.parent.gameObject, 10f);
         else
@@ -268,7 +268,7 @@ public class Breakable_Object : MonoBehaviour {
 
                 }
 
-                Destroy(fragments, 10f);
+                Destroy(fragments, 3f);
                 if (rock && !partOfNinja)
                 {
                     Destroy(transform.parent.gameObject);

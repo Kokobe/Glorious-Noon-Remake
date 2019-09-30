@@ -429,6 +429,7 @@ public class Ninja : MonoBehaviour
                         if (gSpark != null)
                             gSpark.enabled = true;
 
+                        /*
                         Debug.Log("death smashing");
                         if (!bigNinja)
                             r.angularDrag = 0;
@@ -437,6 +438,18 @@ public class Ninja : MonoBehaviour
                         r.velocity = Vector3.zero;
                         r.velocity += forwardDir * 1f;
                         r.velocity += Vector3.up * 45f;
+                        if (!gettingBackUp && !bigNinja && !MooseNinja)
+                            f = StartCoroutine(FixRotation());
+                            */
+
+                        Debug.Log("death smashing");
+                        if (!bigNinja)
+                            r.angularDrag = 0;
+                        r.maxAngularVelocity = 18f;
+                        r.AddForceAtPosition(Vector3.down * 10000f, forward.position);
+                        r.velocity = Vector3.zero;
+                        r.velocity += forwardDir * 1f;
+                        r.velocity += Vector3.up * 15f;
                         if (!gettingBackUp && !bigNinja && !MooseNinja)
                             f = StartCoroutine(FixRotation());
 

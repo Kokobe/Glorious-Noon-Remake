@@ -188,6 +188,7 @@ public class PickUpAndThrow : MonoBehaviour {
     public float charge = 0f;
     public float chargeDissapation = .010f;
     float yeet = 0;
+
     void OnTriggerStay(Collider c)
     {
         attatchedSwords = swordManager.GetComponent<SwordCount>().attSwords;
