@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Survival.unity
     guid: 77e662356e327a346a07bdd80db2b09a
   - enabled: 0
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Oculus/VR/Scenes/GearVrControllerTest.unity
     guid: d56af3aeb2176e7459f753c1c2e2dd97
+  - enabled: 1
+    path: Assets/OculusQuestTest.unity
+    guid: c6de6048506f842d98108631eb4bc10d
   m_configObjects: {}
