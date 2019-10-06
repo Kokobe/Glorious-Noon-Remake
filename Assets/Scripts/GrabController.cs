@@ -18,7 +18,8 @@ public class GrabController : MonoBehaviour
     public bool holding = false;
     public TextMesh debugText;
     public List<Collider> colliders = new List<Collider>();
-    public List<GameObject> restricted_swords = new List<GameObject>();
+    public Swords_Manager swords_manager;
+    private List<GameObject> restricted_swords;
 
     public bool isBoomerangEnchanted = false;
 
@@ -51,7 +52,6 @@ public class GrabController : MonoBehaviour
         else if (((m_prevFlex <= grabEnd) && (prevFlex > grabEnd)) || Input.GetKeyDown(KeyCode.T))
         {
             GrabEnd();
-            Debug.Log("T");
         }
     }
 
@@ -65,7 +65,7 @@ public class GrabController : MonoBehaviour
                 && (!sword_go.GetComponent<FixedJoint>() || sword_go.GetComponent<stuck>())
                 && !restricted_swords.Contains(sword_go))
             {
-               //debugText.text = "pick up successful";
+                debugText.text = restricted_swords.ToString();
                 pickUp();
                 restricted_swords.Add(sword_go);
             }
@@ -91,15 +91,15 @@ public class GrabController : MonoBehaviour
 
             //do enchantments
             applyEnchantments(o);
-            debugText.text += "" + (bool) sword_go.GetComponent<FixedJoint>();
+          // debugText.text += "" + (bool) sword_go.GetComponent<FixedJoint>();
             sword_go.GetComponent<Rigidbody>().isKinematic = false;
             joint = sword_go.AddComponent<FixedJoint>();
-            debugText.text += "+";
+           // debugText.text += "+";
             joint.connectedBody = attach;
         }
         else
         {
-            debugText.text = "joint is there";
+          // debugText.text = "joint is there";
         }
 
     }
@@ -112,7 +112,7 @@ public class GrabController : MonoBehaviour
     private void addCollider(Collider c)
     {
         if ((!c.gameObject.GetComponent<FixedJoint>() || c.gameObject.GetComponent<stuck>())
-            && colliders.IndexOf(c) == -1)
+            && colliders.IndexOf(c) == -1 && !restricted_swords.Contains(getSword(c)))
         {
             colliders.Add(c);
         }
@@ -126,7 +126,7 @@ public class GrabController : MonoBehaviour
         foreach (Collider s in colliders)
         {
             var dist = (transform.position - s.ClosestPointOnBounds(transform.position)).sqrMagnitude;
-            if (dist <= closestDist)
+            if (dist <= closestDist && !restricted_swords.Contains(getSword(s)))
             {
                 closestDist = dist;
                 closestCollider = s;
@@ -152,34 +152,36 @@ public class GrabController : MonoBehaviour
 
     protected void GrabEnd() //throw
     {
-        Rigidbody sword_rigidbody = sword_go.GetComponent<Rigidbody>();
-        //Destroy(joint);
-        sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) * 1.8f;
-        sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller)* -1;
-
-        //sword_rigidbody.velocity += Vector3.forward * 2f;
-
-        Destroy(sword_go.GetComponent<FixedJoint>());
-
-
-       if (isBoomerangEnchanted)
+        if (joint != null)
         {
-            if (sword_go.GetComponent<Boomerang>())
-                Destroy(sword_go.GetComponent<Boomerang>());
-            var b = sword_go.AddComponent<Boomerang>();
+            Rigidbody sword_rigidbody = sword_go.GetComponent<Rigidbody>();
 
-            b.returnPosition = attach.transform;
-            sword_rigidbody.useGravity = false;
+            sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) * 1.8f;
+            sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller) * -1;
+
+            //sword_rigidbody.velocity += Vector3.forward * 2f;
+
+            Destroy(sword_go.GetComponent<FixedJoint>());
+            joint = null;
+
+            if (isBoomerangEnchanted)
+            {
+                if (sword_go.GetComponent<Boomerang>())
+                    Destroy(sword_go.GetComponent<Boomerang>());
+                var b = sword_go.AddComponent<Boomerang>();
+
+                b.returnPosition = attach.transform;
+                sword_rigidbody.useGravity = false;
+            }
+
+            restricted_swords.Remove(sword_go);
+            holding = false;
         }
-          
-        restricted_swords.Remove(sword_go);
-        holding = false;
-
     }
 
     void Start()
     {
-
+        restricted_swords = swords_manager.restricted_swords;
     }
 
 
