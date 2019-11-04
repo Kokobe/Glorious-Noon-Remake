@@ -69,7 +69,7 @@ public class Boomerang : MonoBehaviour {
                 if ((transform.position - returnPosition.position).magnitude < 15f)
                     r.velocity = -1 * (transform.position - returnPosition.position) * throwSpeed;
                 else
-                    r.velocity = -1 * (transform.position - returnPosition.position).normalized * 20f * throwSpeed;
+                    r.velocity = -1 * (transform.position - returnPosition.position).normalized * 17f * throwSpeed;
 
             }
             else

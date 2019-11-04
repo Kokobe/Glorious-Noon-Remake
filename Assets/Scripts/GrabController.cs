@@ -7,47 +7,31 @@ public class GrabController : MonoBehaviour
     // Grip trigger thresholds for picking up objects, with some hysteresis.
     public float grabBegin = 0f;
     public float grabEnd = .9f;
+    public float grabRadius = .3f;
     public Rigidbody attach;
 
     [SerializeField]
     protected OVRInput.Controller m_controller;
     protected float m_prevFlex;
 
+    public Transform rig;
     public GameObject sword_go;
     public FixedJoint joint = null;
     public bool holding = false;
     public TextMesh debugText;
-    public List<Collider> colliders = new List<Collider>();
     public Swords_Manager swords_manager;
     private List<GameObject> restricted_swords;
+    public GameObject[] go_grabbables;
+    private Dictionary<GameObject, float> grabbables = new Dictionary<GameObject, float>();
 
     public bool isBoomerangEnchanted = false;
 
-    private void OnTriggerExit(Collider c)
-    {
-        if (c.gameObject.tag.Equals("Sword") || c.gameObject.tag.Equals("EnchanterStone"))
-        {
-            if ((colliders.IndexOf(c) != -1))
-            {
-                colliders.Remove(c);
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        float prevFlex = m_prevFlex;
-        // Update values from inputs
-        m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
-        CheckForGrabOrRelease(prevFlex, other);
-    }
-
-    protected void CheckForGrabOrRelease(float prevFlex, Collider c = null)
+    protected void CheckForGrabOrRelease(float prevFlex)
     {
         //debugText.text = "in position";
         if (((m_prevFlex >= grabBegin) && (prevFlex < grabBegin)) || Input.GetKeyDown(KeyCode.G))
         {
-            GrabBegin(c);
+            GrabBegin();
         }
         else if (((m_prevFlex <= grabEnd) && (prevFlex > grabEnd)) || Input.GetKeyDown(KeyCode.T))
         {
@@ -55,21 +39,40 @@ public class GrabController : MonoBehaviour
         }
     }
 
-    protected void GrabBegin(Collider c) //pick up
+    protected void GrabBegin() //pick up
     {
-        if (!holding && (c.gameObject.tag.Equals("Sword") || c.gameObject.tag.Equals("EnchanterStone")))
+        if (!holding)
         {
-            addCollider(c);
-            sword_go = getSword(getClosestCollider());
-            if (colliders.Count > 0 && !holding 
+            sword_go = getClosesetSword();
+          
+            if (sword_go != null
                 && (!sword_go.GetComponent<FixedJoint>() || sword_go.GetComponent<stuck>())
                 && !restricted_swords.Contains(sword_go))
             {
-                debugText.text = restricted_swords.ToString();
                 pickUp();
                 restricted_swords.Add(sword_go);
             }
         }
+    }
+
+    private GameObject getClosesetSword()
+    {
+        float closest = -1f;
+        GameObject closest_go = null;
+        foreach(GameObject go in grabbables.Keys)
+        {
+            if (closest < 0 || grabbables[go] <= closest)
+            {
+                closest = grabbables[go];
+                closest_go = go;
+            }
+        }
+
+
+        if (closest <= grabRadius)
+            return closest_go;
+        else
+            return null;
     }
 
     private void pickUp()
@@ -109,32 +112,6 @@ public class GrabController : MonoBehaviour
 
     }
 
-    private void addCollider(Collider c)
-    {
-        if ((!c.gameObject.GetComponent<FixedJoint>() || c.gameObject.GetComponent<stuck>())
-            && colliders.IndexOf(c) == -1 && !restricted_swords.Contains(getSword(c)))
-        {
-            colliders.Add(c);
-        }
-    }
-
-    private Collider getClosestCollider()
-    {
-        var closestDist = (transform.position - colliders[0].ClosestPointOnBounds(transform.position)).sqrMagnitude;
-        Collider closestCollider = colliders[0];
-
-        foreach (Collider s in colliders)
-        {
-            var dist = (transform.position - s.ClosestPointOnBounds(transform.position)).sqrMagnitude;
-            if (dist <= closestDist && !restricted_swords.Contains(getSword(s)))
-            {
-                closestDist = dist;
-                closestCollider = s;
-            }
-        }
-
-        return closestCollider;
-    }
 
     private GameObject getSword(Collider c)
     {
@@ -156,8 +133,12 @@ public class GrabController : MonoBehaviour
         {
             Rigidbody sword_rigidbody = sword_go.GetComponent<Rigidbody>();
 
-            sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) * 1.8f;
             sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller) * -1;
+            sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) *
+                                        (sword_rigidbody.angularVelocity.magnitude/10f);
+            //sword_rigidbody.velocity = Quaternion.Euler(0, rig.rotation.eulerAngles.y, 0) * sword_rigidbody.velocity;
+
+
 
             //sword_rigidbody.velocity += Vector3.forward * 2f;
 
@@ -182,16 +163,34 @@ public class GrabController : MonoBehaviour
     void Start()
     {
         restricted_swords = swords_manager.restricted_swords;
+        foreach (GameObject go in go_grabbables)
+        {
+            grabbables.Add(go, 0f);
+        }
+    }
+    Dictionary<GameObject, float> cloneDictionary()
+    {
+        Dictionary<GameObject, float> newDict = new Dictionary<GameObject, float>();
+        foreach (GameObject go in grabbables.Keys)
+        {
+            newDict.Add(go, grabbables[go]);
+        }
+        return newDict;
     }
 
-
     void Update()
-    { 
-        if (holding)
+    {
+        Dictionary<GameObject, float> copy = cloneDictionary();
+        foreach (GameObject go in grabbables.Keys)
         {
-            float prevFlex = m_prevFlex;
-            m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
-            CheckForGrabOrRelease(prevFlex);
+            copy[go] = Vector3.Distance(attach.transform.position, go.transform.position);
+
         }
+        grabbables = copy;
+
+        float prevFlex = m_prevFlex;
+        m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+        CheckForGrabOrRelease(prevFlex);
+
     }
 }
