@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/OculusQuestTest.unity
     guid: c6de6048506f842d98108631eb4bc10d
+  - enabled: 0
+    path: Assets/_scenes/Hunter_Gatherer.unity
+    guid: 23114ddd3049348f4807f8383ddb3153
+  - enabled: 1
+    path: Assets/_scenes/HunterGatherer.unity
+    guid: 78b368fe0a0b9415e9cdfde099f37f6e
+  - enabled: 1
+    path: Assets/_scenes/GetSword.unity
+    guid: 21d9e5a8ba15148979d440400bf3c753
   m_configObjects: {}
