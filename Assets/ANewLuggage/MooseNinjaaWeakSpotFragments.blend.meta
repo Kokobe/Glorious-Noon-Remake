@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: dae55d08acd2baf43876b2de5267f502
-timeCreated: 1507396441
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Circle_009
     100002: Cylinder_cell
@@ -77,6 +75,9 @@ ModelImporter:
     100138: Circle_009_cell_027
     100140: Circle_009_cell_028
     100142: Circle_009_cell_029
+    100144: Circle_009_cell_030
+    100146: Circle_009_cell_031
+    100148: Circle_009_cell_032
     400000: Circle_009
     400002: Cylinder_cell
     400004: Cylinder_cell_001
@@ -149,6 +150,9 @@ ModelImporter:
     400138: Circle_009_cell_027
     400140: Circle_009_cell_028
     400142: Circle_009_cell_029
+    400144: Circle_009_cell_030
+    400146: Circle_009_cell_031
+    400148: Circle_009_cell_032
     2300000: Circle_009
     2300002: Cylinder_cell
     2300004: Cylinder_cell_001
@@ -221,6 +225,9 @@ ModelImporter:
     2300138: Circle_009_cell_027
     2300140: Circle_009_cell_028
     2300142: Circle_009_cell_029
+    2300144: Circle_009_cell_030
+    2300146: Circle_009_cell_031
+    2300148: Circle_009_cell_032
     3300000: Circle_009
     3300002: Cylinder_cell
     3300004: Cylinder_cell_001
@@ -293,6 +300,9 @@ ModelImporter:
     3300138: Circle_009_cell_027
     3300140: Circle_009_cell_028
     3300142: Circle_009_cell_029
+    3300144: Circle_009_cell_030
+    3300146: Circle_009_cell_031
+    3300148: Circle_009_cell_032
     4300000: Cylinder_cell_039
     4300002: Cylinder_cell_038
     4300004: Cylinder_cell_037
@@ -364,12 +374,32 @@ ModelImporter:
     4300136: Circle_009_cell_002
     4300138: Circle_009_cell_001
     4300140: Circle_009_cell
+    4300142: Circle_009_cell_032
+    4300144: Circle_009_cell_031
+    4300146: Circle_009_cell_030
     7400000: Default Take
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bluee
+    second: {fileID: 2100000, guid: c2828425eff148743bad9aeb7685d38b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MooseBlue
+    second: {fileID: 2100000, guid: 3f33375e37670bf4483692cf2c4e263c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlankWood
+    second: {fileID: 2100000, guid: 47b47c9d23f9941f69c8baf7c2e68e56, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -382,12 +412,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -395,22 +428,34 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -425,7 +470,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

@@ -33,8 +33,14 @@ EditorBuildSettings:
     path: Assets/Oculus/VR/Scenes/Room.unity
     guid: 54445976c1dbf1c49bb38ba7eba558e8
   - enabled: 1
+    path: Assets/_scenes/GetSword.unity
+    guid: 21d9e5a8ba15148979d440400bf3c753
+  - enabled: 1
     path: Assets/_scenes/Lab.unity
     guid: 4a7a63c614f27436a860e5999e546dd9
+  - enabled: 1
+    path: Assets/_scenes/Start.unity
+    guid: f2b6c6d3e6c714febbb79ed3e6225d6d
   - enabled: 1
     path: Assets/_scenes/OculusQuestTest.unity
     guid: c6de6048506f842d98108631eb4bc10d
@@ -44,7 +50,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/HunterGatherer.unity
     guid: 78b368fe0a0b9415e9cdfde099f37f6e
-  - enabled: 1
-    path: Assets/_scenes/GetSword.unity
-    guid: 21d9e5a8ba15148979d440400bf3c753
   m_configObjects: {}

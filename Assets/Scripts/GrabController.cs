@@ -26,6 +26,8 @@ public class GrabController : MonoBehaviour
 
     public bool isBoomerangEnchanted = false;
 
+    public Rigidbody sword_rigidbody;
+
     protected void CheckForGrabOrRelease(float prevFlex)
     {
         //debugText.text = "in position";
@@ -81,7 +83,9 @@ public class GrabController : MonoBehaviour
         var sword_transform = sword_go.transform;
         var offRot = Vector3.up;
 
-       if(joint == null)
+        sword_rigidbody = sword_go.GetComponent<Rigidbody>();
+
+        if (joint == null)
         {
             Destroy(sword_go.GetComponent<FixedJoint>());
             Destroy(sword_go.GetComponent<stuck>());
@@ -127,23 +131,19 @@ public class GrabController : MonoBehaviour
         return sword;
     }
 
+   
+
     protected void GrabEnd() //throw
     {
         if (joint != null)
         {
-            Rigidbody sword_rigidbody = sword_go.GetComponent<Rigidbody>();
-
+            Destroy(sword_go.GetComponent<FixedJoint>());
+            joint = null;
             sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller) * -1;
             sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) *
                                         (sword_rigidbody.angularVelocity.magnitude/10f);
             //sword_rigidbody.velocity = Quaternion.Euler(0, rig.rotation.eulerAngles.y, 0) * sword_rigidbody.velocity;
-
-
-
-            //sword_rigidbody.velocity += Vector3.forward * 2f;
-
-            Destroy(sword_go.GetComponent<FixedJoint>());
-            joint = null;
+            // sword_rigidbody.velocity += (Vector3.forward * 10f);
 
             if (isBoomerangEnchanted)
             {
@@ -157,6 +157,7 @@ public class GrabController : MonoBehaviour
 
             restricted_swords.Remove(sword_go);
             holding = false;
+
         }
     }
 
