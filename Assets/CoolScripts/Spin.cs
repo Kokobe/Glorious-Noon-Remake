@@ -8,9 +8,9 @@ public class Spin : MonoBehaviour {
     public Transform head;
     public float desiredDegree = 0;
     public float initialDegree = 0f;
-   
-    public SteamVR_TrackedObject rightHand;
-    public SteamVR_TrackedObject leftHand;
+
+    [SerializeField]
+    protected OVRInput.Controller m_controller;
     private bool readyToRotateAgain = true;
     bool moveLeft;
     bool moveRight;
@@ -34,17 +34,17 @@ public class Spin : MonoBehaviour {
             yield return null;
         }
 
+        readyToRotateAgain = true;
+
     }
     
     void Update()
     {
-       
-        var Rightdevice = SteamVR_Controller.Input((int)rightHand.index);
-        var Leftdevice = SteamVR_Controller.Input((int)leftHand.index);
+
         if (readyToRotateAgain)
         {
            
-            if (Rightdevice.GetAxis().x < -.9f || Leftdevice.GetAxis().x < -.9f)
+            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) || Input.GetKeyDown(KeyCode.E))
             {
                 
                 desiredDegree = -60;
@@ -53,7 +53,7 @@ public class Spin : MonoBehaviour {
                 t = 0f;
                 StartCoroutine(spinIt());
             }
-            else if (Rightdevice.GetAxis().x > .9f || Leftdevice.GetAxis().x > .9f) { 
+            else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight)) { 
                 desiredDegree = 60;
                 readyToRotateAgain = false;
                
@@ -66,8 +66,8 @@ public class Spin : MonoBehaviour {
         }
         else
         {
-            if (Rightdevice.GetAxis().sqrMagnitude ==0 && Leftdevice.GetAxis().sqrMagnitude ==0)
-                readyToRotateAgain = true;
+       //    if (Rightdevice.GetAxis().sqrMagnitude ==0 && Leftdevice.GetAxis().sqrMagnitude ==0)
+         //       readyToRotateAgain = true;
 
         }
         //  rig.rotation = Quaternion.RotateTowards(rig.rotation, Quaternion.Euler(0, degree, 0), Time.unscaledDeltaTime * 500f);

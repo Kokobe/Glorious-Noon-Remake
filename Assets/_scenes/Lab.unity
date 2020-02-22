@@ -10361,12 +10361,12 @@ PrefabInstance:
     - target: {fileID: 944469650866621769, guid: 0f7802becede149aaa96c3553170509e,
         type: 3}
       propertyPath: EnableRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 944469650866621769, guid: 0f7802becede149aaa96c3553170509e,
         type: 3}
       propertyPath: SnapRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 944469650909243873, guid: 0f7802becede149aaa96c3553170509e,
         type: 3}
@@ -10416,7 +10416,7 @@ PrefabInstance:
     - target: {fileID: 944469650097236835, guid: 0f7802becede149aaa96c3553170509e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f7802becede149aaa96c3553170509e, type: 3}

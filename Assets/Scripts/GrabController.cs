@@ -140,10 +140,10 @@ public class GrabController : MonoBehaviour
             Destroy(sword_go.GetComponent<FixedJoint>());
             joint = null;
             sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller) * -1;
-            sword_rigidbody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) *
+            sword_rigidbody.velocity = rig.transform.rotation*  OVRInput. GetLocalControllerVelocity(m_controller) *
                                         (sword_rigidbody.angularVelocity.magnitude/10f);
-            //sword_rigidbody.velocity = Quaternion.Euler(0, rig.rotation.eulerAngles.y, 0) * sword_rigidbody.velocity;
-            // sword_rigidbody.velocity += (Vector3.forward * 10f);
+           // sword_rigidbody.velocity = Quaternion.Euler(0, rig.rotation.eulerAngles.y, 0) * sword_rigidbody.velocity;
+            //sword_rigidbody.velocity += (Vector3.forward * 10f);
 
             if (isBoomerangEnchanted)
             {

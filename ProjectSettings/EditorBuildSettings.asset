@@ -33,8 +33,14 @@ EditorBuildSettings:
     path: Assets/Oculus/VR/Scenes/Room.unity
     guid: 54445976c1dbf1c49bb38ba7eba558e8
   - enabled: 1
+    path: Assets/_scenes/LavaField.unity
+    guid: 446a4c2cd729147e483128f783fe1066
+  - enabled: 1
     path: Assets/_scenes/GetSword.unity
     guid: 21d9e5a8ba15148979d440400bf3c753
+  - enabled: 1
+    path: Assets/_scenes/Start_Interface.unity
+    guid: b92683796fd36431b9c089bab711da02
   - enabled: 1
     path: Assets/_scenes/Lab.unity
     guid: 4a7a63c614f27436a860e5999e546dd9
