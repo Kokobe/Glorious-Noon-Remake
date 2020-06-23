@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GrabController : MonoBehaviour
 {
+    public Animator anim;
 
     // Grip trigger thresholds for picking up objects, with some hysteresis.
     public float grabBegin = 0f;
@@ -34,10 +35,14 @@ public class GrabController : MonoBehaviour
         if (((m_prevFlex >= grabBegin) && (prevFlex < grabBegin)) || Input.GetKeyDown(KeyCode.G))
         {
             GrabBegin();
+            anim.Play("Grab", -1, 0f);
+
         }
         else if (((m_prevFlex <= grabEnd) && (prevFlex > grabEnd)) || Input.GetKeyDown(KeyCode.T))
         {
             GrabEnd();
+            anim.Play("Grab 0", -1, 1f);
+
         }
     }
 
@@ -140,7 +145,7 @@ public class GrabController : MonoBehaviour
             Destroy(sword_go.GetComponent<FixedJoint>());
             joint = null;
             sword_rigidbody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller) * -1;
-            sword_rigidbody.velocity = rig.transform.rotation*  OVRInput. GetLocalControllerVelocity(m_controller) *
+            sword_rigidbody.velocity = rig.transform.rotation*  OVRInput.GetLocalControllerVelocity(m_controller) *
                                         (sword_rigidbody.angularVelocity.magnitude/10f);
            // sword_rigidbody.velocity = Quaternion.Euler(0, rig.rotation.eulerAngles.y, 0) * sword_rigidbody.velocity;
             //sword_rigidbody.velocity += (Vector3.forward * 10f);
