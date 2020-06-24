@@ -6,27 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_scenes/Lab.unity
-    guid: 4a7a63c614f27436a860e5999e546dd9
-  - enabled: 1
-    path: Assets/_scenes/LavaField.unity
-    guid: 446a4c2cd729147e483128f783fe1066
-  - enabled: 1
-    path: Assets/_scenes/GetSword.unity
-    guid: 21d9e5a8ba15148979d440400bf3c753
-  - enabled: 1
-    path: Assets/_scenes/Start_Interface.unity
-    guid: b92683796fd36431b9c089bab711da02
-  - enabled: 1
-    path: Assets/_scenes/Start.unity
-    guid: f2b6c6d3e6c714febbb79ed3e6225d6d
-  - enabled: 1
-    path: Assets/_scenes/OculusQuestTest.unity
-    guid: c6de6048506f842d98108631eb4bc10d
-  - enabled: 0
     path: Assets/_scenes/Hunter_Gatherer.unity
     guid: 23114ddd3049348f4807f8383ddb3153
-  - enabled: 1
-    path: Assets/_scenes/HunterGatherer.unity
-    guid: 78b368fe0a0b9415e9cdfde099f37f6e
+  - enabled: 0
+    path: Assets/_scenes/Start.unity
+    guid: f2b6c6d3e6c714febbb79ed3e6225d6d
+  - enabled: 0
+    path: Assets/_scenes/GetSword.unity
+    guid: 21d9e5a8ba15148979d440400bf3c753
+  - enabled: 0
+    path: Assets/_scenes/Lab.unity
+    guid: 4a7a63c614f27436a860e5999e546dd9
+  - enabled: 0
+    path: Assets/_scenes/LavaField.unity
+    guid: 446a4c2cd729147e483128f783fe1066
+  - enabled: 0
+    path: Assets/_scenes/Start_Interface.unity
+    guid: b92683796fd36431b9c089bab711da02
+  - enabled: 0
+    path: Assets/_scenes/OculusQuestTest.unity
+    guid: c6de6048506f842d98108631eb4bc10d
   m_configObjects: {}
